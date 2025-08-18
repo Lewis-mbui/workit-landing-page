@@ -65,3 +65,10 @@ p {
   font-size: 1rem;
   font-size: clamp(1rem, 0.9353448275862069rem + 0.27586206896551724vw, 1.125rem);
 }
+
+/* Wrapper */
+.wrapper {
+  outline: 2px solid blue;
+  width: min(100% - 2rem, 69.375rem);
+  margin-inline: auto;
+}
