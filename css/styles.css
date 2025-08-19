@@ -7,6 +7,8 @@
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* a:visited, a:active {
@@ -45,13 +47,25 @@ img {
 body {
   font-family: 'Manrope',Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 0.9353448275862069rem + 0.27586206896551724vw, 1.125rem);
-  line-height: 1.3;
+  line-height: 1.7;
 }
 
 h1, h2, h3 {
   font-family: 'Fraunces', Georgia, 'Times New Roman', Times, serif;
   font-weight: 600;
   line-height: 1.1;
+}
+
+h1 span, h2 span, h3 span {
+  display: inline-block;
+}
+
+h1 span::after, h2 span::after, h3 span::after {
+  content: "";
+  height: 2px;
+  display: block;
+  background-color: var(--color-green);
+  width: 100%;
 }
 
 h1 {
@@ -106,5 +120,100 @@ h3 {
 @media screen and (min-width: 900px) {
   .header {
     padding-block: 56px;
+  }
+}
+
+/* Buttons */
+.button {
+  color: var(--color-dk-purple);
+  background-color: var(--color-green);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  padding: 16px 33px 17px;
+  border: 2px solid var(--color-green);
+  transition: color 250ms, background-color 250ms;
+}
+
+.button:hover {
+  color: var(--color-green);
+  background-color: var(--color-dk-purple);
+  border: 2px solid;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--color-dk-purple);
+  text-align: center;
+  position: relative;
+}
+
+.hero::before, .hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-image: url(../assets/images/bg-pattern-1.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  top: 0;
+  left: 0;
+  translate: -38% 0;
+  width: 16.875rem;
+  height: 13.563rem;
+}
+
+.hero::after {
+  width: 8.875rem;
+  height: 7.063rem;
+  right: 0;
+  bottom: 0;
+  rotate: 90deg;
+  translate: 25% 20%;
+}
+
+.hero__headline {
+  color: var(--color-white);
+  margin-block-end: 2.5rem;
+  max-width: 12ch;
+  margin-inline: auto;
+}
+
+.hero__button {
+  margin-inline: auto;
+  margin-block-end: 3.125rem;
+}
+
+.hero__image {
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__image-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: linear-gradient(var(--color-dk-purple) 50%, var(--color-white) 50%);
+  padding-inline: 32px;
+}
+
+.hero__image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0 0;
+  width: 100%;
+  height: 9vh;
+  background-image: url(../assets/images/curved-hero-bottom.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+}
+
+@media screen and (max-width: 700px) {
+  .hero::after, .hero::before {
+    display: none;
   }
 }
